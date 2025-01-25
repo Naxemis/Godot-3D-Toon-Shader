@@ -26,7 +26,7 @@ width = 512
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gc8ha"]
 render_priority = 0
 shader = ExtResource("1_l8r2e")
-shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = SubResource("GradientTexture1D_x3lxx")
@@ -37,7 +37,7 @@ shader_parameter/reflection_dot_gradient = SubResource("GradientTexture1D_6a17n"
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8jd06"]
 render_priority = 0
 shader = ExtResource("1_l8r2e")
-shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = SubResource("GradientTexture1D_x3lxx")
@@ -49,7 +49,7 @@ size = Vector3(0.6, 0.6, 0.6)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mgj64"]
 render_priority = 0
 shader = ExtResource("1_l8r2e")
-shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = SubResource("GradientTexture1D_x3lxx")

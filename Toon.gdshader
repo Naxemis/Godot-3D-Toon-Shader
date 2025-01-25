@@ -1,8 +1,8 @@
 shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_toon, specular_toon;
 
-uniform vec4 albedo : source_color;
-uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform vec4 color : source_color = vec4(1.0);
+uniform sampler2D texture_color : source_color, filter_linear_mipmap, repeat_enable;
 
 uniform vec3 uv1_scale = vec3(1.0);
 uniform vec3 uv1_offset = vec3(0.0);
@@ -12,8 +12,8 @@ void vertex() {
 }
 
 void fragment() {
-	vec4 albedo_tex = texture(texture_albedo, UV);
-	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	vec4 color_tex = texture(texture_color, UV);
+	ALBEDO = color.rgb * color_tex.rgb;
 }
 
 uniform sampler2D color_gradient; 
