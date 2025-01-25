@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://jtu8imee6ubn"]
+
+[ext_resource type="Shader" path="res://Toon.gdshader" id="1_l8r2e"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_00iu6"]
+radius = 0.33
+height = 1.33
+
+[sub_resource type="Gradient" id="Gradient_8lsfa"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.581967, 0.737705, 0.852459)
+colors = PackedColorArray(0, 0, 0, 1, 0.0923971, 0.0923971, 0.0923971, 1, 0.281187, 0.281187, 0.281187, 1, 0.374139, 0.374139, 0.374139, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x3lxx"]
+gradient = SubResource("Gradient_8lsfa")
+width = 512
+
+[sub_resource type="Gradient" id="Gradient_gm08v"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.95082)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6a17n"]
+gradient = SubResource("Gradient_gm08v")
+width = 512
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gc8ha"]
+render_priority = 0
+shader = ExtResource("1_l8r2e")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_x3lxx")
+shader_parameter/reflection_dot_gradient = SubResource("GradientTexture1D_6a17n")
+
+[sub_resource type="SphereMesh" id="SphereMesh_jh00t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8jd06"]
+render_priority = 0
+shader = ExtResource("1_l8r2e")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_x3lxx")
+shader_parameter/reflection_dot_gradient = SubResource("GradientTexture1D_6a17n")
+
+[sub_resource type="BoxMesh" id="BoxMesh_oe7mq"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mgj64"]
+render_priority = 0
+shader = ExtResource("1_l8r2e")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_x3lxx")
+shader_parameter/reflection_dot_gradient = SubResource("GradientTexture1D_6a17n")
+
+[node name="Example Scene" type="Node3D"]
+
+[node name="Capsule" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = SubResource("CapsuleMesh_00iu6")
+surface_material_override/0 = SubResource("ShaderMaterial_gc8ha")
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_jh00t")
+surface_material_override/0 = SubResource("ShaderMaterial_8jd06")
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+mesh = SubResource("BoxMesh_oe7mq")
+skeleton = NodePath("../Capsule")
+surface_material_override/0 = SubResource("ShaderMaterial_mgj64")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.775, 0.631962, 0, -0.631962, -0.775, 0, 1.10951, -2.84936)
+light_energy = 0.25
+shadow_enabled = true
