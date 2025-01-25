@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://jtu8imee6ubn"]
 
-[ext_resource type="Shader" path="res://Toon.gdshader" id="1_l8r2e"]
+[ext_resource type="Shader" path="res://Example Project/Toon.gdshader" id="1_l8r2e"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_00iu6"]
 radius = 0.33
